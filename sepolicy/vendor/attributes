@@ -1,0 +1,3 @@
+attribute hal_sidecar_nokia;
+attribute hal_sidecar_nokia_client;
+attribute hal_sidecar_nokia_server;

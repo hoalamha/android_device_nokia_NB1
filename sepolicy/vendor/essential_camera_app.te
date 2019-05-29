@@ -1,0 +1,36 @@
+type nokia_camera_app, domain, coredomain;
+
+app_domain(nokia_camera_app)
+net_domain(nokia_camera_app)
+
+allow nokia_camera_app app_api_service:service_manager find;
+allow nokia_camera_app audioserver_service:service_manager find;
+allow nokia_camera_app cameraserver_service:service_manager find;
+allow nokia_camera_app drmserver_service:service_manager find;
+allow nokia_camera_app mediacodec_service:service_manager find;
+allow nokia_camera_app mediadrmserver_service:service_manager find;
+allow nokia_camera_app mediaextractor_service:service_manager find;
+allow nokia_camera_app mediametrics_service:service_manager find;
+allow nokia_camera_app mediaserver_service:service_manager find;
+allow nokia_camera_app nfc_service:service_manager find;
+allow nokia_camera_app radio_service:service_manager find;
+allow nokia_camera_app sidecar_service:service_manager find;
+allow nokia_camera_app servicemanager:service_manager list;
+allow nokia_camera_app surfaceflinger_service:service_manager find;
+
+allow nokia_camera_app hal_sidecar_nokia_hwservice:hwservice_manager find;
+
+binder_call(nokia_camera_app, hal_sidecar_nokia_default)
+
+allow nokia_camera_app app_data_file:dir r_dir_perms;
+allow nokia_camera_app app_data_file:file rwx_file_perms;
+allow nokia_camera_app media_rw_data_file:dir create_dir_perms;
+allow nokia_camera_app media_rw_data_file:file create_file_perms;
+allow nokia_camera_app neko_device:chr_file rw_file_perms;
+allow nokia_camera_app proc_meminfo:file r_file_perms;
+allow nokia_camera_app system_app_data_file:file r_file_perms;
+
+r_dir_file(nokia_camera_app, proc_net)
+r_dir_file(nokia_camera_app, sysfs_sidecar_file)
+
+get_prop(nokia_camera_app, vendor_camera_prop)

@@ -1,0 +1,24 @@
+type nokia_sidecar_app, domain;
+
+app_domain(nokia_sidecar_app)
+net_domain(nokia_sidecar_app)
+
+allow nokia_sidecar_app self:netlink_kobject_uevent_socket { bind create read setopt };
+
+allow nokia_sidecar_app activity_service:service_manager find;
+allow nokia_sidecar_app connectivity_service:service_manager find;
+allow nokia_sidecar_app display_service:service_manager find;
+allow nokia_sidecar_app network_management_service:service_manager find;
+allow nokia_sidecar_app notification_service:service_manager find;
+allow nokia_sidecar_app usb_service:service_manager find;
+
+binder_call(nokia_sidecar_app, hal_sidecar_nokia_default)
+allow nokia_sidecar_app hal_sidecar_nokia_hwservice:hwservice_manager find;
+
+allow nokia_sidecar_app system_app_data_file:dir create_dir_perms;
+allow nokia_sidecar_app system_app_data_file:{ file lnk_file } create_file_perms;
+allow nokia_sidecar_app usb_device:dir r_dir_perms;
+allow nokia_sidecar_app vendor_file:file rx_file_perms;
+
+r_dir_file(nokia_sidecar_app, ota_package_file)
+r_dir_file(nokia_sidecar_app, proc_net)

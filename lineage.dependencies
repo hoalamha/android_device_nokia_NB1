@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "hoalamha/android_kernel_nokia_NB1",
+    "target_path": "kernel/nokia/NB1"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
+  }
+]
